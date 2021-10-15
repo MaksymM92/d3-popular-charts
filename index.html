@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>D3 charts</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="module" src="charts/bar-chart.js" defer></script>
+    <script type="module" src="charts/line-chart.js" defer></script>
+    <script type="module" src="charts/pie-chart.js" defer></script>
+</head>
+<body>
+<header>
+    <span>D3 Dashboard</span>
+</header>
+<section>
+    <div class="bar-line-charts">
+        <div class="chart-widget">
+            <div class="widget-header">
+                <span>Line chart</span>
+            </div>
+            <div id="line-chart" class="chart"></div>
+        </div>
+        <div class="chart-widget">
+            <div class="widget-header">
+                <span>Bar chart</span>
+            </div>
+            <div id="bar-chart" class="chart"></div>
+        </div>
+    </div>
+    <div class="pie-chart">
+        <div class="chart-widget">
+            <div class="widget-header">
+                <span>Pie chart</span>
+            </div>
+            <div id="d3-chart" class="chart" style="padding: 90px"></div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
