@@ -20,6 +20,7 @@ const yScale = d3.scaleLinear()
 const svg = d3.select(element).append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+    .attr("viewBox", `0 40 ${width + 80} ${height}`)
     .append("g")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");

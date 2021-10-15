@@ -9,6 +9,7 @@ const margin = {top: 40, right: 30, bottom: 7, left: 50},
     height = 300 - margin.top - margin.bottom;
 
 // Adding helper functions to make the line look nice
+// The <defs> element is used to store graphical objects that will be used at a later time.
 const createGradient = function(select) {
     const gradient = select
         .select('defs')
@@ -64,6 +65,7 @@ const svg = d3.select(element)
     .append('svg')
     .attr('width', width + margin.left + margin.right)
     .attr('height', 300 + margin.top + margin.bottom)
+    .attr("viewBox", `0 40 ${width + 80} ${height}`)
     .append('g')
     .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
@@ -82,11 +84,13 @@ const yScale = d3.scaleLinear()
     ])
     .range([height, 0]);
 
+// Appending <defs>
 svg.append('defs');
 svg.call(createGradient);
 svg.call(createGlowFilter);
 
 // Drawing line with inner gradient
+// Adding functionality to make line curved
 const line = d3.line()
     .x(function(d) {
         return xScale(d.date);
@@ -96,6 +100,7 @@ const line = d3.line()
     })
     .curve(d3.curveCatmullRom.alpha(0.5));
 
+// Drawing inner part of a line
 svg.selectAll('.line')
     .data(parsedData)
     .enter()
@@ -108,6 +113,7 @@ svg.selectAll('.line')
     })
     .style('fill', 'url(#gradient)');
 
+// Drawing a line
 svg.selectAll('.line')
     .data(parsedData)
     .enter()
